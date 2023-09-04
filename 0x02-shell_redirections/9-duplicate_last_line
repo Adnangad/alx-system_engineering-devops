@@ -1,2 +1,2 @@
 #!/bin/bash
-type | sed -n "4p" iacta 
+type ; tail -n 1 iacta 
