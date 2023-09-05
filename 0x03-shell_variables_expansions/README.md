@@ -8,3 +8,4 @@ second script displays hello user
 8th script creates global var
 9th script prints the result of adding 128
 10th script prints result of dividing 2 var
+11th script raises the 1st var to the second var
