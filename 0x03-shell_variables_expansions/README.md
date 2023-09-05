@@ -7,3 +7,4 @@ second script displays hello user
 7th script creates a local variable
 8th script creates global var
 9th script prints the result of adding 128
+10th script prints result of dividing 2 var
