@@ -6,3 +6,4 @@ second script displays hello user
 6th script lists bith local and environmental var
 7th script creates a local variable
 8th script creates global var
+9th script prints the result of adding 128
