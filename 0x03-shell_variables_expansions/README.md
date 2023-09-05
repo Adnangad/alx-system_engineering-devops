@@ -4,3 +4,4 @@ second script displays hello user
 4th script is counting no of dir in PATH
 5th script displays local variables
 6th script lists bith local and environmental var
+7th script creates a local variable
