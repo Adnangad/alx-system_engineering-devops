@@ -5,3 +5,4 @@ second script displays hello user
 5th script displays local variables
 6th script lists bith local and environmental var
 7th script creates a local variable
+8th script creates global var
