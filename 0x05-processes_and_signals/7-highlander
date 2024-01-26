@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# displays for infinity
+b=0
+trap 'echo "I am invincible!!!"; exit 0' 15
+while [ $b -ge 0 ]; do
+      echo "To infinity and beyond"
+      sleep 2
+      ((b++))
+done

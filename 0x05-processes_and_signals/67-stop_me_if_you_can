@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# alternative to kill
+pkill -f highlander
