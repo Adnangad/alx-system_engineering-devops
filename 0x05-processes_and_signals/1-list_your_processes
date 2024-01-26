@@ -1,3 +1,6 @@
 #!/usr/bin/env bash
 # displays pid of all processes
-ps -e -o pid,ppid,user,comm,args --forest
+# -a: Select all processes
+# -u: user interface
+# -forest: heirachial
+ps -a -u --forest
