@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #Installs nginx and adds a custom header
-sudo apt-get update
-sudo apt-get install nginx -y
+apt-get -y update
+apt-get -y install nginx
 
 #creates a copy of the index.html file
 cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.html.bckp
