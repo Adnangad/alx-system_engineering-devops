@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+#Installs nginx and adds a custom header
+sudo apt-get update
+sudo apt-get install nginx -y
+
+#creates a copy of the index.html file
+cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.html.bckp
+
+#prints hello world as the response
+echo -e "Hello World!" | dd status=none of=/var/www/html/index.nginx-debian.html
+
+#deals with redirection
+sudo sed -i '24i\       rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+
+#deals with 404
+echo "Ceci n'est pas une page" >> /var/www/html/error_404.html
+sudo sed -i '25i\       error_page 404 /error_404.html;' /etc/nginx/sites-available/default
+
+#adds a custom header response
+host_name=$(hostname)
+header='\n\tadd_header X-Served-By "$hostname";\n'
+config_file="/etc/nginx/sites-available/default"
+
+# Check if the header already exists
+if ! grep -q "X-Served-By" "$config_file"; then
+    # Add the header if it doesn't exist
+    sed -i "23i $header" "$config_file"
+    echo "Custom header added successfully."
+else
+    echo "Custom header already exists."
+fi
+sudo service nginx restart
