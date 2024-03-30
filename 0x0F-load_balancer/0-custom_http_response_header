@@ -19,14 +19,8 @@ sudo sed -i '25i\       error_page 404 /error_404.html;' /etc/nginx/sites-availa
 #adds a custom header response
 host_name=$(hostname)
 header='\n\tadd_header X-Served-By "$hostname";\n'
-config_file="/etc/nginx/sites-available/default"
-
-# Check if the header already exists
-if ! grep -q "X-Served-By" "$config_file"; then
-    # Add the header if it doesn't exist
-    sed -i "23i $header" "$config_file"
-    echo "Custom header added successfully."
-else
-    echo "Custom header already exists."
+place=$(grep "X-Server-by" /etc/nginx/sites-available/default)
+if [[ -z $place ]]; then
+    sed -i "23i $header" /etc/nginx/sites-available/default
 fi
 sudo service nginx restart
