@@ -18,5 +18,3 @@ backend web_servers
 
 #restart haproxy
 sudo systemctl restart haproxy
-
-sudo systemctl enable haproxy
