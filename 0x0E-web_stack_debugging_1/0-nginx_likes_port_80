@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# debugs the nginx server to listen to port 80
+sudo sed -i '23i\       listen 80;' /etc/nginx/sites-available/default
+sudo service nginx restart
