@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Runs a linux command on another user
+su -c "whoami" "$1"
