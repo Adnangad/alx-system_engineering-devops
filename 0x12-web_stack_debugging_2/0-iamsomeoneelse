@@ -1,4 +1,12 @@
 #!/usr/bin/env bash
 # Runs a linux command on another user
+if [ $# -ne 1 ]; then
+	echo "No user is listed"
+	exit
+fi
 uzer="$1"
-sudo su -c "whoami" "$uzer"
+if ! id "$uzer" &>/dev/null; then
+	echo "$uzer doesnt exist"
+	exit
+fi
+su -c "whoami" "$uzer"
