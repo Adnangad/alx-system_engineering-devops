@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Runs a linux command on another user
 uzer="$1"
-su -c "whoami" "$uzer"
+sudo su -c "whoami" "$uzer"
