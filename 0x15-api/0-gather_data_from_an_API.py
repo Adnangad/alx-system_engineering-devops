@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This module fetches some data from url"""
+"""fetches some data from url"""
 import requests
 import sys
 

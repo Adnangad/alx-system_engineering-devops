@@ -1,20 +1,19 @@
 #!/usr/bin/python3
-"""This module fetches some data from url"""
+"""Rest Apis"""
+
 import csv
 import requests
 import sys
 
 
 if __name__ == "__main__":
-    url = f'https://jsonplaceholder.typicode.com/'
-    resp = requests.get(url + f"users/{sys.argv[1]}")
-    user = resp.json()
-    name = user.get("name")
-    params = {"userId": sys.argv[1]}
-    tasks = requests.get(url + "todos", params=params)
-    taskz = tasks.json()
-    with open(f"{sys.argv[1]}.csv", "w", newline='') as f:
+    userid = sys.argv[1]
+    url = "https://jsonplaceholder.typicode.com/"
+    user = requests.get(url + "users/{}".format(userid)).json()
+    username = user.get("username")
+    tasks = requests.get(url + "todos", params={"userId": userid}).json()
+    with open("{}.csv".format(userid), "w", newline="") as f:
         writer = csv.writer(f, quoting=csv.QUOTE_ALL)
-        for task in taskz:
-            writer.writerow([
-                sys.argv[1], name, task.get('completed'), task.get('title')])
+        [writer.writerow(
+            [userid, username, task.get("completed"), task.get("title")]
+         ) for task in tasks]
