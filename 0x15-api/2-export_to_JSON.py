@@ -10,7 +10,7 @@ if __name__ == "__main__":
     url = "https://jsonplaceholder.typicode.com/"
     user = requests.get(url + "users/{}".format(userid)).json()
     username = user.get("username")
-    params = {"userId": user_id}
+    params = {"userId": userid}
     tasks = requests.get(url + "todos", params).json()
     data = {
         userid: [

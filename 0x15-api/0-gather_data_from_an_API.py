@@ -16,6 +16,6 @@ if __name__ == "__main__":
             task.get("title") for task in taskz if task['completed']]
     num_comp = len(completed_tasks)
     num_tasks = len(taskz)
-    print(f'Employee {name} is done with tasks({num_comp}/{num_tasks})')
-    for task in completed_tasks:
-        print(f"\t{task}")
+    print("Employee {} is done with tasks({}/{}):".format(
+        name, num_comp, num_tasks))
+    [print("\t {}".format(complete)) for complete in completed_tasks]
