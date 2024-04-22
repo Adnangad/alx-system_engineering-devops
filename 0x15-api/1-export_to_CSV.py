@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """This module fetches some data from url"""
+import csv
 import requests
 import sys
-import csv
 
 
 if __name__ == "__main__":

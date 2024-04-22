@@ -18,4 +18,4 @@ if __name__ == "__main__":
     num_tasks = len(taskz)
     print(f'Employee {name} is done with tasks({num_comp}/{num_tasks})')
     for task in completed_tasks:
-        print(f" \t{task}")
+        print(f"\t{task}")
