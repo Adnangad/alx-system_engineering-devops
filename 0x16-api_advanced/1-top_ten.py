@@ -7,14 +7,16 @@ import requests
 
 def top_ten(subreddit):
     """num of subs"""
+    if subreddit is None or not isinstance(subreddit, str):
+        return 0
     url = 'https://www.reddit.com/r/{}/hot/.json'.format(subreddit)
     headers = {'User-Agent': 'Google Chrome Version 81.0.4044.129'}
     params = {'limit': 10}
     response = requests.get(url, headers=headers, params=params, allow_redirects=False)
-    if response.status_code == 200:
-        data = response.json()
+    data = response.json()
+    try:
         for post in data['data']['children']:
             title = post['data']['title']
             print(title)
-    else:
+    except Exception:
         print("None")
