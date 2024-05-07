@@ -12,11 +12,12 @@ def top_ten(subreddit):
     url = 'https://www.reddit.com/r/{}/hot/.json'.format(subreddit)
     headers = {'User-Agent': 'Google Chrome Version 81.0.4044.129'}
     params = {'limit': 10}
-    response = requests.get(url, headers=headers, params=params, allow_redirects=False)
+    response = requests.get(url, headers=headers, params=params)
     data = response.json()
     try:
-        for post in data['data']['children']:
-            title = post['data']['title']
+        rez = data.get('data').get('children')
+        for post in rez:
+            title = post.get('data').get('title')
             print(title)
     except Exception:
         print("None")
