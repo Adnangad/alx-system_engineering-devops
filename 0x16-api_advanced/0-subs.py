@@ -1,16 +1,21 @@
 #!/usr/bin/python3
-import requests
 """
-Gets the number of subscribers of a subreddit.
+Gets the number of subscribers from a subreddit
 """
+from requests import get
 
 
 def number_of_subscribers(subreddit):
-    """num of subs"""
+    """
+    returns the number of subscribers of a given subreddit.
+    """
     if subreddit is None or not isinstance(subreddit, str):
         return 0
+    ag = {'User-agent': 'Google Chrome Version 81.0.4044.129'}
     url = 'https://www.reddit.com/r/{}/about.json'.format(subreddit)
-    headers = {'User-Agent': 'linux:0x16.api.advanced:v1.0.0 {by /u/bdov_}'}
-    response = requests.get(url, headers=headers, allow_redirects=False)
+    response = get(url, headers=ag)
     data = response.json()
-    return data['data']['subscribers']
+    try:
+        return data.get('data').get('subscribers')
+    except:
+        return 0
