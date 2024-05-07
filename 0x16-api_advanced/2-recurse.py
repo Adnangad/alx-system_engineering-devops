@@ -11,7 +11,7 @@ def recurse(subreddit, hot_list=[], after=None):
         return None
     url = 'https://www.reddit.com/r/{}/hot/.json'.format(subreddit)
     headers = {'User-Agent': 'Google Chrome Version 81.0.4044.129'}
-    params = {'after':after}
+    params = {'after': after}
     response = requests.get(url, headers=headers, params=params)
     if response.status_code == 200:
         data = response.json()
